@@ -54,3 +54,10 @@ No items...
 - Add a delete button behind every item
 - Add a checkbox 'hide done todo's' above the list, that when you click/check it, it should filter out all items with `done === false`
 - Add a input search field above the list, which you could filter the todo list on the description field
+
+## Extra II
+
+Go back to the github repo example we're used in our class.
+- Remove the click event (deleteRepo) on a repoItem
+- On click on a repoItem show more information of that item and show a delete button where you add the deleteRepo event again
+- The Repo Component will need a state to hold the state of showing more or less information.

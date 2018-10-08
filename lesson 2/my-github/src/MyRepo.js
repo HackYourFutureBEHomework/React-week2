@@ -16,7 +16,11 @@ class MyRepo extends Component {
     render() {
         const repoElements = this.props.myReposProps.map((repo,index) => {
             return (
-                <Repo key={repo.id} deleteRepo={this.props.deleteRepo} repo={repo}/>
+                <Repo 
+                    key={repo.id} 
+                    deleteRepo={this.props.deleteRepo} 
+                    repo={repo}
+                />
             )
         })
 

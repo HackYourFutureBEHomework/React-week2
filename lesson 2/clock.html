@@ -15,20 +15,29 @@
             class Clock extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.state = {date: new Date()};
+                    this.state = {
+                        date: new Date()
+                    };
                 }
-
+                
+                // Lifecycle function
+                // Only runs after the Component first renders
                 componentDidMount() {
+
+                    // run the this.tick function every second
                     this.timerID = setInterval(
                         () => this.tick(),
                         1000
                     );
                 }
-
+                
+                // Lifecycle function
+                // Only runs before the Component is unmounted
                 componentWillUnmount() {
                     clearInterval(this.timerID);
                 }
-
+                
+                // Sets / updates the state date
                 tick() {
                     this.setState({
                         date: new Date()
@@ -45,7 +54,7 @@
                 }
             }
 
-            
+            // Render Clock Component in the div ID root
             ReactDOM.render(
                 <Clock />,
                 document.getElementById('root')

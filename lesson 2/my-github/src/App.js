@@ -5,19 +5,20 @@ import myRepos from './myrepos.json'
 
 class App extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
+
+		// Initial component state
 		this.state = {
-			myRepos : [
-				{id: '23452',
-				name: 'teste'}
-			],
+			myRepos : [],
 			loading : false,
 			searchString : ''
 		}
 	}
 
+	// function that is going to fetch the data and updates the Components state with that data
 	getData = () => {
-		this.setState({loading:true})
+
+		this.setState({loading:true}) //update loading state to true
 
 		fetch('https://api.github.com/users/cinezaster/repos')
 			.then((response) => {
@@ -25,12 +26,13 @@ class App extends Component {
 			})
 			.then((myJson) => {
 				this.setState({
-					myRepos: myRepos, 
+					myRepos: myJson, 
 					loading: false
 				})
 			})
 	}
 
+	// delete the repo with repoID from the state
 	deleteRepo = (repoID) => {
 		const myNewListOfRepos = this.state.myRepos.filter((repo)=> {
 			return repoID !== repo.id
